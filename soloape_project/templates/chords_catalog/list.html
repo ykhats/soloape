@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  <title>Каталог аккордов</title>
+{% endblock title %}
+{% block content %}
+
+
+<div class="row">  
+
+  <div class="mt-5 col-sm-10" data-bs-spy="scroll" data-bs-target="#table-of-roots" data-bs-smooth-scroll="true" tabindex="0">
+    <h1>
+      Каталог аккордов
+    </h1>
+    <p class="col-sm-8">
+      Выберите аккорд, чтобы увидеть, какие лады на него можно играть. 
+      Каталог ещё в разработке. Поэтому не судите строго, лучше помогите деньгами. 
+    </p>
+      <div class="col-md-11">
+      {% for root in root_list %}
+
+      <h2 class="mt-4" id="list-item-{{ forloop.counter }}">{{ root.title }}</h2>
+      <hr class="col-2 mt-2 mb-2">
+      <ul class="list-inline">
+        {% for quality in quality_list %}
+        <li class="list-inline-item">
+          <a href="{% url 'chords_catalog:chord_detail' root.quote|add:quality.quote %}">
+          {{ root.title }}{{ quality.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container col">
+    <div class="sticky-top py-5 text-center">
+
+        <div id="table-of-roots" class="list-group">
+          {% for root in root_list %}
+          <a class="list-group-item list-group-item-action" href="#list-item-{{ forloop.counter }}">{{ root.title }}</a>
+          {% endfor %}
+        </div>
+
+    </div>
+  </div>
+
+
+</div>
+{% endblock content %}
+

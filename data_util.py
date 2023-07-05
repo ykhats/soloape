@@ -1,9 +1,9 @@
 import csv
 
 # Формируем словарь названий ладов и values нот внутри них
-SCALE_PALLETTE_VAL_DICT = dict()
+SCALE_PALLETTE_VAL_DICT = dict()  # DELAULT_SCALES_DICT
 
-with open('scales_data.csv', 'r') as file:
+with open("scales_data.csv", "r") as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         key = row[0]
@@ -14,7 +14,7 @@ file.close()
 # Формируем словарь соответствий quality и названий ладов
 MATCHES_DICT = dict()
 
-with open('matches_data.csv', 'r') as file:
+with open("matches_data.csv", "r") as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         key = row[0]

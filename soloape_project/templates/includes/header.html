@@ -1,0 +1,22 @@
+{% load static %}
+{% with request.resolver_match.view_name as view_name %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+      <div class="container">
+      <a class="navbar-brand" href="{% url 'homepage:index' %}">
+          <img src="{% static 'img/logo.png' %}" 
+          width="30" height="30" class="d-inline-block align-top" alt="">
+          SoloApe
+      </a>
+      <ul class="nav  nav-pills">
+          <li class="nav-item">
+          <a class="nav-link active" 
+          href="{% url 'chords_catalog:chords_list' %}">
+              Каталог аккордов
+          </a>
+          </li>
+      </ul>      
+      </div>
+  </nav> 
+</header>
+{% endwith %}
